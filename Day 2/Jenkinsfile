@@ -13,7 +13,7 @@ pipeline {
 
         stage('Verify CentOS Version') {
             agent {
-                docker 'centos:latest'  // Use CentOS Docker image for this stage
+                docker 'centos/postgresql-10-centos7'  // Use CentOS Docker image for this stage
             }
             steps {
                 sh 'cat /etc/os-release'  // Command to check the CentOS version
