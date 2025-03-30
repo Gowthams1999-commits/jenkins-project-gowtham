@@ -1,0 +1,23 @@
+pipeline {
+    agent none  // This means no global agent is defined.
+
+    stages {
+        stage('Node.js Application') {
+            agent {
+                docker 'node:latest'  // Using Docker image directly
+            }
+            steps {
+                sh 'node -v'  // Run node version command to check if node is installed
+            }
+        }
+
+        stage('MySQL') {
+            agent {
+                docker 'mysql:latest'  // Using Docker image directly
+            }
+            steps {
+                sh 'echo "my mysql"'  // Placeholder command for MySQL
+            }
+        }
+    }
+}
