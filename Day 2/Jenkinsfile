@@ -1,0 +1,23 @@
+pipeline {
+    agent none  // No global agent is defined.
+
+    stages {
+        stage('Verify Ubuntu OS Version') {
+            agent {
+                docker 'ubuntu:latest'  // Use Ubuntu Docker image for this stage
+            }
+            steps {
+                sh 'cat /etc/os-release'  // Command to check the Ubuntu version
+            }
+        }
+
+        stage('Verify CentOS Version') {
+            agent {
+                docker 'centos:latest'  // Use CentOS Docker image for this stage
+            }
+            steps {
+                sh 'cat /etc/os-release'  // Command to check the CentOS version
+            }
+        }
+    }
+}
