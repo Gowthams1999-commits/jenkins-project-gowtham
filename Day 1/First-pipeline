@@ -1,0 +1,14 @@
+pipeline {
+    agent {
+        docker 'nginx:latest'
+    }
+
+    stages {
+        stage('Verify Nginx Version') {
+            steps {
+                sh 'nginx -v'  // Run the command to verify the Nginx version
+            }
+        }
+    }
+}
+
