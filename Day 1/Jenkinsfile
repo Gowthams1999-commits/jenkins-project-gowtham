@@ -1,0 +1,25 @@
+pipeline {
+
+
+agent {
+
+
+docker 'ubuntu:latest'
+}
+
+stages {
+
+stage('verify ubuntu os version') {
+
+steps {
+
+sh 'cat /etc/os-release'
+
+}
+
+}
+
+}
+
+
+}
