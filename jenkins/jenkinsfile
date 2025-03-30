@@ -1,0 +1,29 @@
+pipeline {
+
+agent {
+
+docker 'nginx:latest'
+
+}
+
+stages {
+
+stage('check nginx version') {
+
+steps {
+
+sh 'nginx -v'
+}
+
+
+}
+
+
+
+
+
+}
+
+
+
+}
