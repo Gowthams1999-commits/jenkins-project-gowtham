@@ -51,7 +51,9 @@ Now you can access the SonarQube Server on http://<ip-address>:9000
 
 4. Reset the pwd  for sonarqube. default user & password is "admin"
 
-5. Installed sonarqube plugin in jenkins to integrate with sonarqube
+5. Install sonarqube plugin in jenkins to integrate with sonarqube
+
+6. get secrets from sonarqube so that jenkins can taking with sonarqube application for static code analyszing.
 
 
 
