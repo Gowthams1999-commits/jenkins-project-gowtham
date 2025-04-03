@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-app-deployment
+  namespace: gow
+  labels:
+    app: springboot-app
+spec:
+  replicas: 3  # You can adjust the number of replicas based on your needs
+  selector:
+    matchLabels:
+      app: springboot-app
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+    spec:
+      containers:
+      - name: springboot-app
+        image: gowtham904/java-spring-boot-gow:latest  # Replace with your image name and tag
+        ports:
+        - containerPort: 8080  # Adjust if your app runs on a different port
