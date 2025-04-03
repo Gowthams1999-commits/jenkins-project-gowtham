@@ -2,9 +2,11 @@
 
 1. Install docker on your machine and installed docker related plugin in jenkins to integrate with docker.
 
-2. added jenkins user in docker group so that jenkins user access docker related command with out any issues.
+   You must install docker plugin and docker pipeline plugin to run docker as agent to build your jenkins pipeline inside the docker container
 
-3. Sonar qube installation.
+3. added jenkins user in docker group so that jenkins user access docker related command with out any issues.
+
+4. Sonar qube installation.
 
    Sonar Qube installation steps:
 
