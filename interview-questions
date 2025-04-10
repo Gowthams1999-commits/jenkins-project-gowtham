@@ -66,3 +66,30 @@ Configure in Manage Jenkins → ThinBackup
 
 Supports scheduled backups and restore
 
+# 2. How to trigger jenkins pipeline/jobs?
+
+✅ 1. Manual Trigger
+Click "Build Now" on the Jenkins job dashboard.
+
+Ideal for ad-hoc runs or testing jobs manually.
+
+⏰ 2. Scheduled Trigger (Cron Syntax)
+Configure under Build Triggers → Build periodically.
+
+Uses Unix-style cron syntax:
+
+
+H 2 * * *      # Every day at 2 AM (H = hash to spread load)
+H/15 * * * *   # Every 15 minutes
+
+🔄 3. SCM Polling (e.g., Git)
+Build Triggers → Poll SCM.
+
+Jenkins will poll the repo at intervals and trigger builds if changes are detected.
+
+Example:
+
+
+H/5 * * * *    # Poll every 5 minutes
+
+
