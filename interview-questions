@@ -1,0 +1,68 @@
+
+# How to take backup of jenkins and it's related folders?
+
+✅ What You Should Back Up:
+At a minimum, you should back up the JENKINS_HOME directory. This contains:
+
+jobs/ — your job configurations
+
+config.xml — Jenkins system configuration
+
+credentials.xml — secure credentials
+
+users/ — user configurations
+
+secrets/ — encrypted credentials and keys
+
+plugins/ — installed plugins
+
+nodes/ — configured nodes
+
+You can find your JENKINS_HOME path in:
+
+Jenkins UI → Manage Jenkins → Configure System
+
+Or it's defined in the environment variable or startup script
+
+💻 How to Manually Backup Jenkins
+Stop Jenkins (optional but safer):
+
+# sudo systemctl stop jenkins
+Copy the Jenkins Home:
+
+
+# cp -r /var/lib/jenkins /path/to/your/backup/location
+Restart Jenkins (if you stopped it):
+
+
+# sudo systemctl start jenkins
+🔄 Automating Backups with a Script
+You can use a cron job and script like this:
+
+
+#!/bin/bash
+
+BACKUP_DIR="/path/to/jenkins-backups"
+JENKINS_HOME="/var/lib/jenkins"
+TIMESTAMP=$(date +"%F-%H-%M")
+DEST="$BACKUP_DIR/jenkins-backup-$TIMESTAMP.tar.gz"
+
+mkdir -p $BACKUP_DIR
+tar -czvf $DEST $JENKINS_HOME
+Then add it to crontab:
+
+
+crontab -e
+
+0 2 * * * /path/to/your/backup_script.sh
+(This runs every day at 2 AM)
+
+📦 Jenkins Backup Plugins (Optional)
+ThinBackup Plugin (GUI-based):
+
+Install from Manage Jenkins → Plugins
+
+Configure in Manage Jenkins → ThinBackup
+
+Supports scheduled backups and restore
+
